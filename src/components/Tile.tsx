@@ -1,3 +1,5 @@
+import { StarRating } from "../images/Star";
+
 export const Tile: React.FC = () => {
   return (
     <div
@@ -12,14 +14,18 @@ export const Tile: React.FC = () => {
       />
       <div
         data-hint="product-details"
-        className="bg-white w-full px-4 py-3 h-1/6 text-lg rounded-lg"
+        className="bg-white w-full px-4 py-3 h-1/6 text-sm rounded-lg"
       >
         <div>
-          <div className="flex justify-between">
-            <div className="font-bold">comes naturally</div>
+          <div>
+            {/* input rating from provided data here */}
+            <StarRating avgRating={5} numberOfRatings={85} />
+          </div>
+          <div className="flex justify-between font-bold">
+            <div>comes naturally</div>
             <div>$17</div>
           </div>
-          <div>precious pout lip liner</div>
+          <div>precision pout lip liner</div>
         </div>
       </div>
     </div>
