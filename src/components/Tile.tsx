@@ -1,7 +1,7 @@
 import { StarRating } from "./Star";
 import { ColorSwatches } from "./ColorSwatches";
 import { placeholderColorArray } from "./ColorSwatches";
-import { AddToCartButton } from "./CartFeatures";
+import { AddToCartButton, QuantitySelector } from "./CartFeatures";
 
 export const Tile: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ export const Tile: React.FC = () => {
         data-hint="product-details"
         className="bg-white w-full px-3 py-3 h-2/6 text-sm rounded-lg"
       >
-        <div data-hint="color-swatch" className="flex">
+        <div data-hint="color-swatch">
           <ColorSwatches colors={placeholderColorArray} />
         </div>
         <div>
@@ -34,7 +34,11 @@ export const Tile: React.FC = () => {
             <div>$17</div>
           </div>
           <div>precision pout lip liner</div>
-          <div data-hint="shopping-container" className="mt-2">
+          <div
+            data-hint="shopping-container"
+            className="mt-2 flex justify-between"
+          >
+            <QuantitySelector />
             <AddToCartButton />
           </div>
         </div>
