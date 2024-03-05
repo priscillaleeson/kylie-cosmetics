@@ -7,6 +7,7 @@ module.exports = {
         pink: "#e7dae2",
         chocolate: "#393939",
         white: "#ffffff",
+        grey: "#393939",
       },
     },
   },
