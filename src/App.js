@@ -1,5 +1,6 @@
 import { Tile } from "./components/Tile";
 import { SwiperContainer } from "./components/Swiper-Container";
+import { AddToCartButton } from "./components/CartFeatures";
 
 function App() {
   return (
@@ -8,7 +9,9 @@ function App() {
         <Tile />
         <Tile />
         <Tile />
+        <Tile />
       </SwiperContainer>
+      <AddToCartButton />
     </div>
   );
 }
