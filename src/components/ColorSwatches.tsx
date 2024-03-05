@@ -8,7 +8,7 @@ export const ColorSwatches: React.FC<ColorSwatchesProps> = ({ colors }) => {
   let colorSwatchArray;
 
   if (colors.length > 0) {
-    return (colorSwatchArray = colors.map((color) => {
+    colorSwatchArray = colors.map((color) => {
       return (
         <div
           className="rounded-full border-black h-4 w-4 mr-1"
@@ -17,8 +17,8 @@ export const ColorSwatches: React.FC<ColorSwatchesProps> = ({ colors }) => {
           }}
         ></div>
       );
-    }));
+    });
   }
 
-  return <div>{colorSwatchArray}</div>;
+  return <div className="flex">{colorSwatchArray}</div>;
 };
