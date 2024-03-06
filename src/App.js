@@ -4,14 +4,13 @@ import { AddToCartButton } from "./components/CartFeatures";
 
 function App() {
   return (
-    <div className="flex justify-center text-3xl m-40 text-chocolate">
+    <div className="flex justify-center text-3xl items-center m-16 text-chocolate">
       <SwiperContainer>
         <Tile />
         <Tile />
         <Tile />
         <Tile />
       </SwiperContainer>
-      <AddToCartButton />
     </div>
   );
 }
