@@ -1,22 +1,48 @@
 import { StarRating } from "./Star";
 import { ColorSwatches } from "./ColorSwatches";
 import { placeholderColorArray } from "./ColorSwatches";
-import { AddToCartButton, QuantitySelector } from "./CartFeatures";
+import { useState } from "react";
+import { TileImageContainer } from "./Tile-Image-Container";
+import { productData } from "../data/product-data";
+import {
+  AddToCartButton,
+  QuantitySelector,
+  CartContainer,
+} from "./CartFeatures";
+
+//just need to switch out initial photo and alt photo with productData
+//currently these are placeholder images
+const initialPhoto = {
+  src: "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854",
+};
+
+const altPhoto = {
+  src: "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Swatch_800x.jpg?v=1701816844",
+};
 
 export const Tile: React.FC = () => {
+  const [thumbnailPhoto, setThumbnailPhoto] = useState(initialPhoto);
+
+  const handleMouseEnter = () => {
+    setThumbnailPhoto(altPhoto);
+  };
+
+  const handleMouseLeave = () => {
+    setThumbnailPhoto(initialPhoto);
+  };
+
+  const handleHover = () => {
+    //use this function to hide and show color swatches and cart features
+    
+  };
+
   return (
     <div
-      className="flex-col mr-[16px] min-w-[200px] max-w-[400px] rounded-lg border-pink border
-    "
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="mb-5 lg:mb-0 flex-col mr-[16px] min-w-[200px] max-w-[400px] rounded-lg border-pink border"
     >
-      <div data-hint="image-container" className="h-4/6">
-        <img
-          data-hint="product-image"
-          className="object-cover w-full h-full rounded-t-lg"
-          src="https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854"
-          alt="product-placeholder"
-        />
-      </div>
+      <TileImageContainer thumbnailPhoto={thumbnailPhoto} />
       <div
         data-hint="product-details"
         className="bg-white w-full px-3 py-3 h-2/6 text-sm rounded-lg"
@@ -34,13 +60,7 @@ export const Tile: React.FC = () => {
             <div>$17</div>
           </div>
           <div>precision pout lip liner</div>
-          <div
-            data-hint="shopping-container"
-            className="mt-2 flex justify-between"
-          >
-            <QuantitySelector />
-            <AddToCartButton />
-          </div>
+          <CartContainer />
         </div>
       </div>
     </div>
