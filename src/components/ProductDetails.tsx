@@ -1,18 +1,23 @@
 interface ProductDetailsProps {
   name: string;
   price: number;
-  colorVariation: string;
+  colorVariations: {
+    name: string | null;
+    hexCode: string | null;
+    featuredImage: string | null;
+    secondaryImage: string | null;
+  }[];
 }
 
 export const ProductDetails: React.FC<ProductDetailsProps> = ({
   name,
   price,
-  colorVariation,
+  colorVariations,
 }) => {
   return (
     <div>
       <div className="flex justify-between font-bold">
-        <div>{colorVariation}</div>
+        <div>{colorVariations[0].name}</div>
         <div>${price}</div>
       </div>
       <div>{name}</div>
