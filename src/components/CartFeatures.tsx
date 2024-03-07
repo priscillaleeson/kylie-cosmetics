@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ReactNode } from "react";
 import classNames from "classnames";
 
-export const CartContainer = ({ price }: { price: number }) => {
+export const CartWrapper = ({ price }: { price: number }) => {
   const [totalIncrementedCost, setTotalIncrementedCost] = useState(price);
   return (
     <div data-hint="shopping-container" className="mt-2 flex justify-between">
