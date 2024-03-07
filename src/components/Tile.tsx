@@ -1,25 +1,38 @@
 import { StarRating } from "./StarRating";
 import { ColorSwatches } from "./ColorSwatches";
-import { placeholderColorArray } from "./ColorSwatches";
 import { useState } from "react";
-import { TileImageContainer } from "./Tile-Image-Container";
+import { TileImageWrapper } from "./Tile-Image-Wrapper";
 import { productData } from "../data/product-data";
-import { CartContainer } from "./CartFeatures";
+import { CartWrapper } from "./CartFeatures";
 import { ProductDetailsContainer } from "./ProductDetailsContainer";
 import { ProductDetails } from "./ProductDetails";
 
-const placeholderImages = [
-  {
-    src1: "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854",
-    src2: "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Swatch_800x.jpg?v=1701816844",
-  },
-  {
-    src1: "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Swatch_800x.jpg?v=1701816844",
-    src2: "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854",
-  },
-];
+type TileProps = {
+  name: string;
+  imgSrc: string;
+  altImgSrc: string;
+  price: number;
+  tag?: string;
+  avgRating: number;
+  numberOfRatings: number;
+  colorVariations: {
+    name: string;
+    hexCode: string;
+    featuredImage: string;
+    secondaryImage: string;
+  }[];
+};
 
-export const Tile: React.FC = () => {
+export const Tile: React.FC<TileProps> = ({
+  name,
+  imgSrc,
+  altImgSrc,
+  price,
+  tag,
+  avgRating,
+  numberOfRatings,
+  colorVariations,
+}) => {
   const [showProductDetailsMenu, setShowProductDetailsMenu] = useState(false);
 
   const handleMouseEnter = () => {
@@ -36,23 +49,39 @@ export const Tile: React.FC = () => {
       onMouseLeave={handleMouseLeave}
       className="mb-5 lg:mb-0 flex-col mr-[16px] min-w-[200px] max-w-[400px] rounded-lg border-pink border"
     >
-      <TileImageContainer
+      <TileImageWrapper
         showProductDetailsMenu={showProductDetailsMenu}
-        imgSrc={placeholderImages[0].src1}
-        imgOverlaySrc={placeholderImages[0].src2}
+        imgSrc={imgSrc}
+        imgOverlaySrc={altImgSrc}
+        tag={tag}
       />
 
       <ProductDetailsContainer>
-        <ColorSwatches colors={placeholderColorArray} />
+        <ColorSwatches colors={colorVariations} />
         {/* input rating from provided data here */}
-        <StarRating avgRating={4.5} numberOfRatings={85} />
+        <StarRating avgRating={avgRating} numberOfRatings={numberOfRatings} />
         <ProductDetails
-          name="precision pout liner"
-          price={17}
-          colorVariation="comes naturally"
+          name={name}
+          price={price}
+          colorVariations={colorVariations}
         />
-        <CartContainer price={17} />
+        <CartWrapper price={price} />
       </ProductDetailsContainer>
     </div>
   );
 };
+
+export const renderedTiles = productData.map((product) => {
+  return (
+    <Tile
+      name={product.name}
+      imgSrc={product.featuredImageSrc}
+      altImgSrc={product.alternateImageSrc}
+      price={product.price}
+      tag={product.tag}
+      avgRating={product.avgRating}
+      numberOfRatings={product.numberOfRatings}
+      colorVariations={product.colorVariations}
+    />
+  );
+});
