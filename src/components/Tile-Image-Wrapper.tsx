@@ -1,15 +1,23 @@
-export const TileImageContainer = ({
+import { OptionalTag } from "./OptionalTag";
+import { useState } from "react";
+
+export const TileImageWrapper = ({
   showProductDetailsMenu,
   imgSrc,
   imgOverlaySrc,
+  tag,
 }: {
   showProductDetailsMenu: boolean;
   imgSrc: string;
   imgOverlaySrc: string;
+  tag?: string;
 }) => {
+  const [showOptionalTag, setShowOptionalTag] = useState(false);
+
   return (
     <div>
       <div data-hint="image-container" className="h-4/6 relative">
+        {tag && <OptionalTag tagText={tag} />}
         <img
           data-hint="product-image"
           className="relative object-cover w-full h-full rounded-t-lg"
