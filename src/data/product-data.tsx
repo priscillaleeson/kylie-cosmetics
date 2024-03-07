@@ -2,11 +2,12 @@ interface ProductDataProps {
   id: number;
   name: string;
   price: number;
+  tag?: string;
   colorVariations: {
-    name: string | null;
-    hexCode: string | null;
-    featuredImage: string | null;
-    secondaryImage: string | null;
+    name: string;
+    hexCode: string;
+    featuredImage: string;
+    secondaryImage: string;
   }[];
   avgRating: number;
   numberOfRatings: number;
@@ -21,6 +22,7 @@ export const productData: ProductDataProps[] = [
     id: 1,
     name: "precious pout lip liner",
     price: 17,
+    tag: "best seller",
     colorVariations: [
       {
         name: "cocoa",
@@ -57,6 +59,7 @@ export const productData: ProductDataProps[] = [
     id: 2,
     name: "tinted butter balm",
     price: 18,
+    tag: "new",
     colorVariations: [
       {
         name: "pick me up at 8",
