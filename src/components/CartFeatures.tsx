@@ -3,22 +3,28 @@ import { useState } from "react";
 import { ReactNode } from "react";
 import classNames from "classnames";
 
-export const CartContainer = () => {
-  const [totalCost, setTotalCost] = useState(17);
+export const CartContainer = ({ price }: { price: number }) => {
+  const [totalIncrementedCost, setTotalIncrementedCost] = useState(price);
   return (
     <div data-hint="shopping-container" className="mt-2 flex justify-between">
-      <QuantitySelector totalCost={totalCost} setTotalCost={setTotalCost} />
-      <AddToCartButton totalCost={totalCost} />
+      <QuantitySelector
+        totalIncrementedCost={totalIncrementedCost}
+        setTotalIncrementedCost={setTotalIncrementedCost}
+        price={price}
+      />
+      <AddToCartButton totalIncrementedCost={totalIncrementedCost} />
     </div>
   );
 };
 
 export const QuantitySelector = ({
-  totalCost,
-  setTotalCost,
+  totalIncrementedCost,
+  setTotalIncrementedCost,
+  price,
 }: {
-  totalCost: number;
-  setTotalCost: React.Dispatch<React.SetStateAction<number>>;
+  totalIncrementedCost: number;
+  setTotalIncrementedCost: React.Dispatch<React.SetStateAction<number>>;
+  price: number;
 }) => {
   const [counter, setCounter] = useState(1);
 
@@ -26,7 +32,7 @@ export const QuantitySelector = ({
     console.log("incrementing...");
     console.log(counter);
     setCounter(counter + 1);
-    setTotalCost(totalCost + 17);
+    setTotalIncrementedCost(totalIncrementedCost + price);
   };
 
   const handleDecrementClick = () => {
@@ -34,7 +40,7 @@ export const QuantitySelector = ({
     console.log(counter);
     if (counter > 1) {
       setCounter(counter - 1);
-      setTotalCost(totalCost - 17);
+      setTotalIncrementedCost(totalIncrementedCost - price);
     }
   };
 
@@ -50,11 +56,8 @@ export const QuantitySelector = ({
     <div
       className={classNames(
         "hidden 2xl:flex",
-
         "justify-around",
-
         "mr-2 w-2/5 h-10",
-
         "border border-grey rounded"
       )}
     >
@@ -74,15 +77,21 @@ export const QuantitySelector = ({
   );
 };
 
-export const AddToCartButton = ({ totalCost }: { totalCost: number }) => {
+export const AddToCartButton = ({
+  totalIncrementedCost,
+}: {
+  totalIncrementedCost: number;
+}) => {
   return (
     <button
       onClick={() =>
-        alert(`Precision Pout Lip Liner - $${totalCost} added to cart!`)
+        alert(
+          `Precision Pout Lip Liner - $${totalIncrementedCost} added to cart!`
+        )
       }
       className=" w-full 2xl:w-3/5 bg-grey hover:bg-white transition-colors ease-in-out duration-200 hover:text-chocolate text-[15px] text-white border border-grey rounded h-10  py-1 flex justify-center items-center"
     >
-      add to cart - ${totalCost}
+      add to cart - ${totalIncrementedCost}
     </button>
   );
 };
