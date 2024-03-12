@@ -10,7 +10,7 @@ export const ProductDetailsContainer = ({
   return (
     <div
       data-hint="product-details"
-      className="bg-white w-full px-3 py-3 h-2/6 text-sm rounded-lg"
+      className="bg-white h-2/6 py-3 text-sm rounded-lg relative"
     >
       {children}
     </div>
