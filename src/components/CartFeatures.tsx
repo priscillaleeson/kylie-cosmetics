@@ -1,12 +1,15 @@
 import { BiPlus, BiMinus } from "react-icons/bi";
 import { useState } from "react";
-import { ReactNode } from "react";
+
 import classNames from "classnames";
 
 export const CartWrapper = ({ price }: { price: number }) => {
   const [totalIncrementedCost, setTotalIncrementedCost] = useState(price);
   return (
-    <div data-hint="shopping-container" className="mt-2 flex justify-between">
+    <div
+      data-hint="shopping-container"
+      className="mt-2 flex justify-between relative top-0 "
+    >
       <QuantitySelector
         totalIncrementedCost={totalIncrementedCost}
         setTotalIncrementedCost={setTotalIncrementedCost}
