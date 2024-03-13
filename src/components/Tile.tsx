@@ -6,6 +6,7 @@ import { productData } from "../data/product-data";
 import { CartWrapper } from "./CartFeatures";
 import { ProductDetailsContainer } from "./ProductDetailsContainer";
 import { ProductDetails } from "./ProductDetails";
+import classNames from "classnames";
 
 type TileProps = {
   name: string;
@@ -47,7 +48,7 @@ export const Tile: React.FC<TileProps> = ({
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="mb-5 lg:mb-0 flex-col mr-[16px] min-w-[200px] max-w-[365px] max-h-[500px] rounded-lg border-pink border relative overflow-hidden group"
+      className="lg:mb-0 mb-5 flex-col mr-[16px] min-w-[200px] max-w-[365px] max-h-[500px] rounded-lg border-pink border relative overflow-hidden group"
     >
       <TileImageWrapper
         imgSrc={imgSrc}
@@ -58,7 +59,15 @@ export const Tile: React.FC<TileProps> = ({
 
       <ProductDetailsContainer>
         <div className="bg-white absolute bottom-0 left-0 right-0 p-3 pt-2">
-          <div className="pt-2 overflow-hidden transition-all ease-linear max-h-0 group-hover:max-h-64 group-hover:duration-[1100ms]">
+          <div
+            className={classNames(
+              "pt-2",
+              "opacity-0 group-hover:opacity-100",
+              "transition-opacity duration-[200ms] ease-linear",
+              "max-h-0 group-hover:max-h-64",
+              "transition-transform ease-linear group-hover:duration-[800ms]"
+            )}
+          >
             <ColorSwatches colors={colorVariations} />
           </div>
           {/* input rating from provided data here */}
@@ -69,7 +78,7 @@ export const Tile: React.FC<TileProps> = ({
             colorVariations={colorVariations}
           />
 
-          <div className="relative transition-all ease-in-out  overflow-hidden max-h-0 group-hover:max-h-64 group-hover:duration-[700ms]">
+          <div className="relative transition-all ease-linear overflow-hidden max-h-0 group-hover:max-h-64 group-hover:duration-[700ms]">
             {/*  overflow-hidden max-h-0 group-hover:max-h-64 */}
             <div className="group-hover:translate-y-0 translate-y-20 transition-all duration-200">
               <CartWrapper price={price} />

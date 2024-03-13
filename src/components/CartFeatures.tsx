@@ -92,7 +92,14 @@ export const AddToCartButton = ({
           `Precision Pout Lip Liner - $${totalIncrementedCost} added to cart!`
         )
       }
-      className=" w-full 2xl:w-3/5 bg-grey hover:bg-white transition-colors ease-in-out duration-200 hover:text-chocolate text-[15px] text-white border border-grey rounded h-10  py-1 flex justify-center items-center"
+      className={classNames(
+        "flex justify-center items-center",
+        " w-full h-10 py-1",
+        "2xl:w-3/5",
+        "bg-grey hover:bg-white transition-colors ease-in-out duration-200",
+        "text-white hover:text-chocolate text-[15px]",
+        "border border-grey rounded"
+      )}
     >
       add to cart - ${totalIncrementedCost}
     </button>

@@ -1,4 +1,5 @@
 import { BiPlus } from "react-icons/bi";
+import classNames from "classnames";
 
 interface ColorSwatchesProps {
   colors: {
@@ -16,17 +17,19 @@ export const ColorSwatches: React.FC<ColorSwatchesProps> = ({ colors }) => {
     colorSwatchArray = colors.map((color) => {
       return (
         <div>
-          <div
-            data-hint="button-border-when-clicked"
-            className="rounded-full border border-black h-[21px] w-[21px]"
-          >
-            hello
-          </div>
+          {/* <div
+        //     data-hint="button-border-when-clicked"
+        //     className="rounded-full border border-black h-[21px] w-[21px] absolute"
+        //   ></div> */}
           <button
-            id={color.name || undefined}
-            className="rounded-full h-5 w-5 mr-1"
+            id={color.name}
+            className={classNames(
+              "rounded-full",
+              "h-5 w-5 mr-1",
+              "focus:ring-1 focus:ring-offset-[.7px] focus:ring-black"
+            )}
             style={{
-              backgroundColor: color.hexCode || undefined,
+              backgroundColor: color.hexCode,
             }}
           ></button>
         </div>
@@ -35,7 +38,13 @@ export const ColorSwatches: React.FC<ColorSwatchesProps> = ({ colors }) => {
   }
 
   const seeMoreColorsButton = (
-    <button className="h-5 w-5 mr-1 rounded-full border border-black bg-transparent flex justify-center items-center">
+    <button
+      className={classNames(
+        "flex justify-center items-center",
+        "h-5 w-5 mr-1",
+        "border rounded-full border-black"
+      )}
+    >
       <div className="p-2">
         <BiPlus />
       </div>
@@ -43,7 +52,7 @@ export const ColorSwatches: React.FC<ColorSwatchesProps> = ({ colors }) => {
   );
 
   return (
-    <div className="relative top-0 flex">
+    <div className="flex relative top-0 pb-1">
       {colorSwatchArray}
       <div>{seeMoreColorsButton}</div>
     </div>
