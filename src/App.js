@@ -1,17 +1,17 @@
-import { Tile } from "./components/Tile";
-import { SwiperContainer } from "./components/Swiper-Container";
-import { AddToCartButton } from "./components/CartFeatures";
-import { renderedTiles } from "./components/Tile";
+import { SwiperContainer } from "./components/SwiperContainer";
 import { register } from "swiper/element/bundle";
 import { PrevButton, NextButton } from "./components/SwiperButtons";
+import { LogoWrapper } from "./components/LogoWrapper";
+import { ColorPickerSlideMenu } from "./components/ColorPickerSlideMenu";
+import { OpacityLayer } from "./components/OpacityLayer";
+
 register();
 
 function App() {
   return (
-    <div className="flex justify-center text-3xl items-center m-16 text-chocolate">
-      <PrevButton />
-      <SwiperContainer>{renderedTiles}</SwiperContainer>
-      <NextButton />
+    <div>
+      <LogoWrapper />
+      <SwiperContainer />
       {/* <swiper-container
         slides-per-view="3"
         speed="500"
@@ -20,8 +20,7 @@ function App() {
       >
         <swiper-slide>slide 1</swiper-slide>
         <swiper-slide>slide 2</swiper-slide>
-        <swiper-slide>slide 3</swiper-slide>
-      </swiper-container> */}
+  <swiper-slide>slide 3</swiper-slide> */}
     </div>
   );
 }
