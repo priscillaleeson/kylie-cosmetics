@@ -49,6 +49,7 @@ export const QuantitySelector = ({
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "") {
+      // potentially an area where there is a bug -- if the user tries to delete input, there is always a 1 so you cannot write in another number that doesn't start with 1
       setCounter(1);
     } else {
       setCounter(parseInt(e.target.value));
@@ -94,8 +95,8 @@ export const AddToCartButton = ({
       }
       className={classNames(
         "flex justify-center items-center",
-        " w-full h-10 py-1",
-        "2xl:w-3/5",
+        "w-full h-10 py-1",
+        // "2xl:w-3/5",
         "bg-grey hover:bg-white transition-colors ease-in-out duration-200",
         "text-white hover:text-chocolate text-[15px]",
         "border border-grey rounded"
