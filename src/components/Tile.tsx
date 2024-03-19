@@ -36,18 +36,10 @@ export const Tile: React.FC<TileProps> = ({
 }) => {
   const [showProductDetailsMenu, setShowProductDetailsMenu] = useState(false);
 
-  const handleMouseEnter = () => {
-    setShowProductDetailsMenu(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowProductDetailsMenu(false);
-  };
-
   return (
     <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => setShowProductDetailsMenu(true)}
+      onMouseLeave={() => setShowProductDetailsMenu(false)}
       className="lg:mb-0 mb-5 flex-col mr-[16px] min-w-[200px] max-w-[365px] max-h-[500px] rounded-lg border-pink border relative overflow-hidden group"
     >
       <TileImageWrapper
@@ -68,7 +60,7 @@ export const Tile: React.FC<TileProps> = ({
               "transition-transform ease-linear group-hover:duration-[800ms]"
             )}
           >
-            <ColorSwatches colors={colorVariations} />
+            <ColorSwatches colors={colorVariations} isVertical={false} />
           </div>
           {/* input rating from provided data here */}
           <StarRating avgRating={avgRating} numberOfRatings={numberOfRatings} />
@@ -90,17 +82,21 @@ export const Tile: React.FC<TileProps> = ({
   );
 };
 
-export const renderedTiles = productData.map((product) => {
-  return (
-    <Tile
-      name={product.name}
-      imgSrc={product.featuredImageSrc}
-      altImgSrc={product.alternateImageSrc}
-      price={product.price}
-      tag={product.tag}
-      avgRating={product.avgRating}
-      numberOfRatings={product.numberOfRatings}
-      colorVariations={product.colorVariations}
-    />
-  );
-});
+// export const renderedTiles = productData.map((product) => {
+//   return (
+//     <Tile
+//       name={product.name}
+//       imgSrc={product.featuredImageSrc}
+//       altImgSrc={product.alternateImageSrc}
+//       price={product.price}
+//       tag={product.tag}
+//       avgRating={product.avgRating}
+//       numberOfRatings={product.numberOfRatings}
+//       colorVariations={product.colorVariations}
+//     />
+//   );
+// });
+
+// export const ProductTiles = () => {
+//   return <div className="flex flex-wrap ml-[16px] min-[950px]:flex-nowrap justify-center items-center">{renderedTiles}</div>;
+// };
