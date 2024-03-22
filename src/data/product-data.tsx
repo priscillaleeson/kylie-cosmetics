@@ -7,7 +7,9 @@ interface ProductDataProps {
     name: string;
     hexCode: string;
     featuredImage: string;
+    featuredImageAlt: string;
     secondaryImage: string;
+    secondaryImageAlt: string;
   }[];
   avgRating: number;
   numberOfRatings: number;
@@ -25,25 +27,34 @@ export const productData: ProductDataProps[] = [
     tag: "best seller",
     colorVariations: [
       {
-        name: "cocoa",
+        name: "smitten",
         hexCode: "#A95952",
         featuredImage:
-          "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854",
-        secondaryImage: "placeholder",
-      },
-      {
-        name: "smitten",
-        hexCode: "#9C595A",
-        featuredImage:
-          "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854",
-        secondaryImage: "placeholder",
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_Smitten_Stylized_800x.jpg?v=1701816850",
+        featuredImageAlt: "smitten lip liner",
+        secondaryImage:
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_Smitten_Swatch_800x.jpg?v=1701816849",
+        secondaryImageAlt: "smitten lip liner swatch",
       },
       {
         name: "comes naturally",
+        hexCode: "#9C595A",
+        featuredImage:
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_Coconut2.0_Stylized_800x.jpg?v=1701816853",
+        featuredImageAlt: "comes naturally lip liner",
+        secondaryImage:
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Swatch_800x.jpg?v=1701816844",
+        secondaryImageAlt: "comes naturally lip liner swatch",
+      },
+      {
+        name: "coconut 2.0",
         hexCode: "#9D5546",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854",
-        secondaryImage: "placeholder",
+        featuredImageAlt: "coconut 2.0 lip liner",
+        secondaryImage:
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_Coconut2.0_Stylized_800x.jpg?v=1701816853",
+        secondaryImageAlt: "coconut 2.0 lip liner swatch",
       },
     ],
     avgRating: 4.8,
@@ -66,27 +77,30 @@ export const productData: ProductDataProps[] = [
         hexCode: "#FE8791",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Pink_Me_Up_338_Open-0_800x.jpg?v=1686755477",
-
+        featuredImageAlt: "",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_PinkMeUpAt8_3Layers_01_V2_800x.jpg?v=1686755477",
+        secondaryImageAlt: "",
       },
       {
         name: "she's lovely",
         hexCode: "#AE645D",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Shes_Lovely_619_Open-0_800x.jpg?v=1686755477",
-
+        featuredImageAlt: "",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_She_sLovely_3Layers_01_800x.jpg?v=1686755477",
+        secondaryImageAlt: "",
       },
       {
         name: "that's tea",
         hexCode: "#D0524D",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Thats_Tea_211_Open-0_800x.jpg?v=1686755477",
-
+        featuredImageAlt: "",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_That_sTea_3Layers_01_800x.jpg?v=1686755477",
+        secondaryImageAlt: "",
       },
     ],
     avgRating: 4.2,
@@ -108,21 +122,27 @@ export const productData: ProductDataProps[] = [
         hexCode: "#A95952",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854",
+        featuredImageAlt: "",
         secondaryImage: "placeholder",
+        secondaryImageAlt: "",
       },
       {
         name: "smitten",
         hexCode: "#9C595A",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854",
+        featuredImageAlt: "",
         secondaryImage: "placeholder",
+        secondaryImageAlt: "",
       },
       {
         name: "comes naturally",
         hexCode: "#9D5546",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_LLPRP_23_ComesNaturally_Stylized_800x.jpg?v=1701816854",
+        featuredImageAlt: "",
         secondaryImage: "placeholder",
+        secondaryImageAlt: "",
       },
     ],
     avgRating: 4.8,
@@ -138,33 +158,37 @@ export const productData: ProductDataProps[] = [
     id: 4,
     name: "tinted butter balm",
     price: 18,
+    tag: "new",
     colorVariations: [
       {
         name: "pick me up at 8",
         hexCode: "#FE8791",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Pink_Me_Up_338_Open-0_800x.jpg?v=1686755477",
-
+        featuredImageAlt: "",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_PinkMeUpAt8_3Layers_01_V2_800x.jpg?v=1686755477",
+        secondaryImageAlt: "",
       },
       {
         name: "she's lovely",
         hexCode: "#AE645D",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Shes_Lovely_619_Open-0_800x.jpg?v=1686755477",
-
+        featuredImageAlt: "",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_She_sLovely_3Layers_01_800x.jpg?v=1686755477",
+        secondaryImageAlt: "",
       },
       {
         name: "that's tea",
         hexCode: "#D0524D",
         featuredImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Thats_Tea_211_Open-0_800x.jpg?v=1686755477",
-
+        featuredImageAlt: "",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_That_sTea_3Layers_01_800x.jpg?v=1686755477",
+        secondaryImageAlt: "",
       },
     ],
     avgRating: 4.2,
