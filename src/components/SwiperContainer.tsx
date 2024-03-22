@@ -6,12 +6,19 @@ import { productData } from "../data/product-data";
 import { useState } from "react";
 
 export const SwiperContainer: React.FC = () => {
-  const [showOpacityLayer, setShowOpacityLayer] = useState(false);
+  //this state manages opening up the slide menu, which also triggers the opacity of the webpage and being unable to click on a product detail
+  const [showColorPickerSlideMenu, setShowColorPickerSlideMenu] =
+    useState(false);
+
+  const handleSlideMenuToggle = () => {
+    setShowColorPickerSlideMenu(!showColorPickerSlideMenu);
+  };
 
   return (
     <div>
-      <OpacityLayer showOpacityLayer={showOpacityLayer} />
-
+      <div onClick={handleSlideMenuToggle}>
+        <OpacityLayer showColorPickerSlideMenu={showColorPickerSlideMenu} />
+      </div>
       <div className="flex justify-center text-3xl items-center text-chocolate">
         <PrevButton />
         <div className="flex flex-wrap ml-[16px] min-[950px]:flex-nowrap justify-center items-center">
@@ -27,14 +34,20 @@ export const SwiperContainer: React.FC = () => {
                 avgRating={product.avgRating}
                 numberOfRatings={product.numberOfRatings}
                 colorVariations={product.colorVariations}
-                showOpacityLayer={showOpacityLayer}
-                setShowOpacityLayer={setShowOpacityLayer}
+                showColorPickerSlideMenu={showColorPickerSlideMenu}
+                setShowColorPickerSlideMenu={setShowColorPickerSlideMenu}
               />
             ))}
         </div>
         <NextButton />
       </div>
-      <ColorPickerSlideMenu setShowOpacityLayer={setShowOpacityLayer} />
+      (
+      <ColorPickerSlideMenu
+        showColorPickerSlideMenu={showColorPickerSlideMenu}
+        setShowColorPickerSlideMenu={setShowColorPickerSlideMenu}
+        handleExitClick={handleSlideMenuToggle}
+      />
+      )
     </div>
   );
 };

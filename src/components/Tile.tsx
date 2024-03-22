@@ -22,8 +22,8 @@ type TileProps = {
     featuredImage: string;
     secondaryImage: string;
   }[];
-  showOpacityLayer: boolean;
-  setShowOpacityLayer: (showOpacityLayer: boolean) => void;
+  showColorPickerSlideMenu: boolean;
+  setShowColorPickerSlideMenu: (showOpacityLayer: boolean) => void;
 };
 
 export const Tile: React.FC<TileProps> = ({
@@ -35,8 +35,8 @@ export const Tile: React.FC<TileProps> = ({
   avgRating,
   numberOfRatings,
   colorVariations,
-  showOpacityLayer,
-  setShowOpacityLayer,
+  showColorPickerSlideMenu: showOpacityLayer,
+  setShowColorPickerSlideMenu: setShowOpacityLayer,
 }) => {
   const [showProductDetailsMenu, setShowProductDetailsMenu] = useState(false);
 
@@ -90,22 +90,3 @@ export const Tile: React.FC<TileProps> = ({
     </div>
   );
 };
-
-// export const renderedTiles = productData.map((product) => {
-//   return (
-//     <Tile
-//       name={product.name}
-//       imgSrc={product.featuredImageSrc}
-//       altImgSrc={product.alternateImageSrc}
-//       price={product.price}
-//       tag={product.tag}
-//       avgRating={product.avgRating}
-//       numberOfRatings={product.numberOfRatings}
-//       colorVariations={product.colorVariations}
-//     />
-//   );
-// });
-
-// export const ProductTiles = () => {
-//   return <div className="flex flex-wrap ml-[16px] min-[950px]:flex-nowrap justify-center items-center">{renderedTiles}</div>;
-// };
