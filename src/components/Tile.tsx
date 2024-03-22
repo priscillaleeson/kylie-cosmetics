@@ -22,6 +22,8 @@ type TileProps = {
     featuredImage: string;
     secondaryImage: string;
   }[];
+  showOpacityLayer: boolean;
+  setShowOpacityLayer: (showOpacityLayer: boolean) => void;
 };
 
 export const Tile: React.FC<TileProps> = ({
@@ -33,6 +35,8 @@ export const Tile: React.FC<TileProps> = ({
   avgRating,
   numberOfRatings,
   colorVariations,
+  showOpacityLayer,
+  setShowOpacityLayer,
 }) => {
   const [showProductDetailsMenu, setShowProductDetailsMenu] = useState(false);
 
@@ -60,7 +64,12 @@ export const Tile: React.FC<TileProps> = ({
               "transition-transform ease-linear group-hover:duration-[800ms]"
             )}
           >
-            <ColorSwatches colors={colorVariations} isVertical={false} />
+            <ColorSwatches
+              colors={colorVariations}
+              isVertical={false}
+              showOpacityLayer={showOpacityLayer}
+              setShowOpacityLayer={setShowOpacityLayer}
+            />
           </div>
           {/* input rating from provided data here */}
           <StarRating avgRating={avgRating} numberOfRatings={numberOfRatings} />

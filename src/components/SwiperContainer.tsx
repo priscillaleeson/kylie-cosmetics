@@ -3,11 +3,14 @@ import { ColorPickerSlideMenu } from "./ColorPickerSlideMenu";
 import { OpacityLayer } from "./OpacityLayer";
 import { Tile } from "./Tile";
 import { productData } from "../data/product-data";
+import { useState } from "react";
 
 export const SwiperContainer: React.FC = () => {
+  const [showOpacityLayer, setShowOpacityLayer] = useState(false);
+
   return (
     <div>
-      <OpacityLayer isOn={false} />
+      <OpacityLayer showOpacityLayer={showOpacityLayer} />
 
       <div className="flex justify-center text-3xl items-center text-chocolate">
         <PrevButton />
@@ -24,12 +27,14 @@ export const SwiperContainer: React.FC = () => {
                 avgRating={product.avgRating}
                 numberOfRatings={product.numberOfRatings}
                 colorVariations={product.colorVariations}
+                showOpacityLayer={showOpacityLayer}
+                setShowOpacityLayer={setShowOpacityLayer}
               />
             ))}
         </div>
         <NextButton />
       </div>
-      <ColorPickerSlideMenu />
+      <ColorPickerSlideMenu setShowOpacityLayer={setShowOpacityLayer} />
     </div>
   );
 };
