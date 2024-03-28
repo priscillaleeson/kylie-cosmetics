@@ -1,7 +1,18 @@
 import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
+import classNames from "classnames";
+
 export const NextButton = () => {
   return (
-    <button className="hidden lg:flex rounded-full border border-pink h-8 w-8 p-2 text-base">
+    <button
+      className={classNames(
+        "h-9 w-9 p-2",
+        "lg:flex justify-center items-center",
+        "hidden",
+        "rounded-full border border-pink",
+        "bg-white",
+        "text-base"
+      )}
+    >
       <div>
         <HiArrowRight />
       </div>
@@ -11,7 +22,16 @@ export const NextButton = () => {
 
 export const PrevButton = () => {
   return (
-    <button className="hidden lg:flex rounded-full border border-pink h-8 w-8 text-base p-2">
+    <button
+      className={classNames(
+        "h-9 w-9 p-2",
+        "lg:flex justify-center items-center",
+        "hidden",
+        "rounded-full border border-pink",
+        "bg-white",
+        "text-base"
+      )}
+    >
       <div>
         <HiArrowLeft />
       </div>
