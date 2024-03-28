@@ -5,65 +5,93 @@ import { productData } from "../data/product-data";
 import classNames from "classnames";
 
 export const ColorPickerSlideMenu = ({
-  showColorPickerSlideMenu: showOpacityLayer,
-  setShowColorPickerSlideMenu: setShowOpacityLayer,
+  productName,
+  productPrice,
+  showColorPickerSlideMenu,
+  setShowColorPickerSlideMenu,
+  colorVariations,
+  selectedColorOption,
+  setSelectedColorOption,
   handleExitClick,
 }: {
+  productName: string;
+  productPrice: number;
   showColorPickerSlideMenu: boolean;
-  setShowColorPickerSlideMenu: (showOpacityLayer: boolean) => void;
+  setShowColorPickerSlideMenu: (showColorPickerSlideMenu: boolean) => void;
+  colorVariations: {
+    name: string;
+    hexCode: string;
+    featuredImage: string;
+    secondaryImage: string;
+  }[];
+  selectedColorOption: {
+    productName: string;
+    colorName: string;
+    featuredImage: string;
+    secondaryImage: string;
+  };
+  setSelectedColorOption?: ({
+    productName,
+    colorName,
+    featuredImage,
+    secondaryImage,
+  }: {
+    productName: string;
+    colorName: string;
+    featuredImage: string;
+    secondaryImage: string;
+  }) => void;
   handleExitClick: () => void;
 }) => {
-  // const handleExitClick = () => {
-  //   setShowOpacityLayer(!showOpacityLayer);
-  // };
   return (
     <div
       data-hint="color-picker-slide-menu"
       className={classNames(
         "z-50",
-        "h-full",
-        "pl-5 pt-3",
+        "ml-5 pt-3 pl-4",
         "text-chocolate bg-white",
-        "fixed right-0 top-0",
+        "fixed right-0 top-0 bottom-0",
         "overflow-hidden",
         "text-nowrap overflow-hidden",
+        "w-[450px]",
+        "transition-transform ease-in-out duration-500",
 
-        showOpacityLayer ? "w-[450px]" : "w-0"
+        showColorPickerSlideMenu ? "translate-x-0" : "translate-x-full"
       )}
-      style={{
-        transition: "width .75s",
-      }}
     >
       <div className="flex justify-between">
-        <div className="font-bold">{productData[0].name}</div>
+        <div className=" font-semibold text-2xl">{productName}</div>
         <button onClick={handleExitClick}>
-          <IoCloseOutline className="font-thin text-xl text-grey" />
+          <IoCloseOutline className="font-thin text-2xl mr-2 text-grey" />
         </button>
       </div>
-      <div className="font-extralight mb-1">
-        {productData[0].colorVariations[0].name}
+      <div className="font-extralight text-2xl mb-1">
+        {selectedColorOption.colorName}
+       
       </div>
       <div>
         <ColorSwatches
-          colors={productData[0].colorVariations}
+          colors={colorVariations}
           isVertical={true}
-          setShowOpacityLayer={setShowOpacityLayer}
+          setShowColorPickerSlideMenu={setShowColorPickerSlideMenu}
         />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 border-t-[1px] border-l-0 border border-pink p-4">
+      <div className="absolute bottom-0 right-0 left-0 border-t-[1px] border-l-0 border border-pink p-4">
         <div className="flex justify-center mb-2">
-          <AddToCartButton totalIncrementedCost={15} />
-          {/* 15 is currently a placeholder */}
+          <AddToCartButton
+            totalIncrementedCost={productPrice}
+            selectedColorOption={selectedColorOption}
+          />
         </div>
 
         <div className="flex justify-center text-[12px] font-thin">
-          <span className="decoration-[.5px] hover:decoration-1 underline underline-offset-1">
+          <button className="decoration-[.5px] hover:decoration-1 underline underline-offset-1">
             more details{" "}
-          </span>
+          </button>
           &nbsp; or &nbsp;
-          <span className="decoration-[.5px] hover:decoration-1 underline underline-offset-1">
+          <button className="decoration-[.5px] hover:decoration-1 underline underline-offset-1">
             continue shopping
-          </span>
+          </button>
         </div>
       </div>
     </div>
