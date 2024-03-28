@@ -3,7 +3,18 @@ import { useState } from "react";
 
 import classNames from "classnames";
 
-export const CartWrapper = ({ price }: { price: number }) => {
+export const CartWrapper = ({
+  price,
+  selectedColorOption,
+}: {
+  price: number;
+  selectedColorOption: {
+    productName: string;
+    colorName: string;
+    featuredImage: string;
+    secondaryImage: string;
+  };
+}) => {
   const [totalIncrementedCost, setTotalIncrementedCost] = useState(price);
   return (
     <div
@@ -15,7 +26,10 @@ export const CartWrapper = ({ price }: { price: number }) => {
         setTotalIncrementedCost={setTotalIncrementedCost}
         price={price}
       />
-      <AddToCartButton totalIncrementedCost={totalIncrementedCost} />
+      <AddToCartButton
+        totalIncrementedCost={totalIncrementedCost}
+        selectedColorOption={selectedColorOption}
+      />
     </div>
   );
 };
@@ -83,20 +97,26 @@ export const QuantitySelector = ({
 
 export const AddToCartButton = ({
   totalIncrementedCost,
+  selectedColorOption,
 }: {
   totalIncrementedCost: number;
+  selectedColorOption: {
+    productName: string;
+    colorName: string;
+    featuredImage: string;
+    secondaryImage: string;
+  };
 }) => {
   return (
     <button
       onClick={() =>
         alert(
-          `Precision Pout Lip Liner - $${totalIncrementedCost} added to cart!`
+          `${selectedColorOption.productName} in ${selectedColorOption.colorName}- $${totalIncrementedCost} added to cart!`
         )
       }
       className={classNames(
         "flex justify-center items-center",
         "w-full h-10 py-1",
-        // "2xl:w-3/5",
         "bg-grey hover:bg-white transition-colors ease-in-out duration-200",
         "text-white hover:text-chocolate text-[15px]",
         "border border-grey rounded"
