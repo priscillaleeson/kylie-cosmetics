@@ -2,6 +2,7 @@ import classNames from "classnames";
 
 interface OptionalTagProps {
   tagText?: string;
+  backgroundColor?:string;
 }
 
 export const OptionalTag: React.FC<OptionalTagProps> = ({ tagText }) => {
