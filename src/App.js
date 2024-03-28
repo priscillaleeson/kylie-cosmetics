@@ -9,7 +9,7 @@ register();
 
 function App() {
   return (
-    <div>
+    <div className="bg-primaryPink min-h-screen">
       <LogoWrapper />
       <SwiperContainer />
       {/* <swiper-container
