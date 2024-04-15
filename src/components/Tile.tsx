@@ -1,7 +1,6 @@
 import { StarRating } from "./StarRating";
 import { ColorSwatches } from "./ColorSwatches";
 import { useState } from "react";
-import { OpacityLayer } from "./OpacityLayer";
 import { TileImageWrapper } from "./Tile-Image-Wrapper";
 // import { productData } from "../data/product-data";
 import { CartWrapper } from "./CartFeatures";
@@ -42,9 +41,8 @@ export const Tile: React.FC<TileProps> = ({
   };
 
   const [showProductDetailsMenu, setShowProductDetailsMenu] = useState(false);
-  const [toggleProductImage, setToggleProductImage] = useState(false);
 
-  const [selectedColorOption, setSelectedColorOption] = useState({
+  const [selectedColorOption, setSelectedColorOption_] = useState({
     //default state will show the first color in each product list
     productName: name,
     colorName: colorVariations[0].name,
@@ -52,18 +50,20 @@ export const Tile: React.FC<TileProps> = ({
     secondaryImage: colorVariations[0].secondaryImage,
   });
 
+  const setSelectedColorOption = (arg: any) => {
+    console.log("Setting selected color option @ parent", arg);
+    setSelectedColorOption_(arg);
+  };
+
+
   return (
     <div>
-      {/* onClick={handleSlideMenuToggle} */}
-      <OpacityLayer showColorPickerSlideMenu={showColorPickerSlideMenu} />
       <div
         onMouseEnter={() => {
           setShowProductDetailsMenu(true);
-          setToggleProductImage(true);
         }}
         onMouseLeave={() => {
           setShowProductDetailsMenu(false);
-          setToggleProductImage(false);
         }}
         className={classNames(
           "group",
@@ -72,12 +72,11 @@ export const Tile: React.FC<TileProps> = ({
           "rounded-lg border-pink border",
           "overflow-hidden",
           "lg:mb-0 mb-5 mr-[16px]",
-          "] min-w-[200px] max-w-[365px] max-h-[500px]"
+          " min-w-[200px] max-w-[365px] max-h-[500px]"
         )}
       >
         <TileImageWrapper
           selectedColorOption={selectedColorOption}
-          toggleProductImage={toggleProductImage}
           tag={tag}
           showProductDetailsMenu={showProductDetailsMenu}
         />
@@ -93,6 +92,7 @@ export const Tile: React.FC<TileProps> = ({
               )}
             >
               <ColorSwatches
+                key="foobar"
                 colors={colorVariations}
                 productName={name}
                 isVertical={false}

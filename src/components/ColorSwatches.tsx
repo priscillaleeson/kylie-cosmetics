@@ -18,7 +18,7 @@ interface ColorSwatchesProps {
     featuredImage: string;
     secondaryImage: string;
   };
-  setSelectedColorOption?: ({
+  setSelectedColorOption: ({
     productName,
     colorName,
     featuredImage,
@@ -64,6 +64,7 @@ export const ColorSwatches: React.FC<ColorSwatchesProps> = ({
               <button
                 onClick={() => {
                   console.log("i want to change the image here");
+
                   if (setSelectedColorOption) {
                     setSelectedColorOption({
                       productName: productName ?? "",
@@ -81,7 +82,6 @@ export const ColorSwatches: React.FC<ColorSwatchesProps> = ({
                 className={classNames(
                   "rounded-full",
                   "focus:ring-1  focus:ring-black",
-                 
 
                   isVertical
                     ? "h-7 w-7 mr-2 mb-1 focus:ring-offset-[1.8px] absolute top-0 left-0"
