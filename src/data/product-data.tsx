@@ -71,7 +71,7 @@ export const productData: ProductDataProps[] = [
         // productName: "tinted butter balm",
         hexCode: "#FE8791",
         featuredImage:
-          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Pink_Me_Up_338_Open-0_800x.jpg?v=1686755477",
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_800x.jpg?v=1712935664",
         featuredImageAlt: "pick me up at 8 tinted butter balm",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_PinkMeUpAt8_3Layers_01_V2_800x.jpg?v=1686755477",
@@ -82,7 +82,7 @@ export const productData: ProductDataProps[] = [
         // productName: "tinted butter balm",
         hexCode: "#AE645D",
         featuredImage:
-          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Shes_Lovely_619_Open-0_800x.jpg?v=1686755477",
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Shes_Lovely_Stylized_800x.jpg?v=1712935664",
         featuredImageAlt: "she's lovely tinted butter balm",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_She_sLovely_3Layers_01_800x.jpg?v=1686755477",
@@ -93,7 +93,7 @@ export const productData: ProductDataProps[] = [
         // productName: "tinted butter balm",
         hexCode: "#D0524D",
         featuredImage:
-          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Thats_Tea_211_Open-0_800x.jpg?v=1686755477",
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Thats_Tea_Stylized_800x.jpg?v=1712935664",
         featuredImageAlt: "that's tea tinted butter balm",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_That_sTea_3Layers_01_800x.jpg?v=1686755477",
@@ -157,7 +157,7 @@ export const productData: ProductDataProps[] = [
         // productName: "tinted butter balm",
         hexCode: "#FE8791",
         featuredImage:
-          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Pink_Me_Up_338_Open-0_800x.jpg?v=1686755477",
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_800x.jpg?v=1712935664",
         featuredImageAlt: "pick me up at 8 tinted butter balm",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_PinkMeUpAt8_3Layers_01_V2_800x.jpg?v=1686755477",
@@ -168,7 +168,7 @@ export const productData: ProductDataProps[] = [
         // productName: "tinted butter balm",
         hexCode: "#AE645D",
         featuredImage:
-          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Shes_Lovely_619_Open-0_800x.jpg?v=1686755477",
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Shes_Lovely_Stylized_800x.jpg?v=1712935664",
         featuredImageAlt: "she's lovely tinted butter balm",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_She_sLovely_3Layers_01_800x.jpg?v=1686755477",
@@ -179,7 +179,7 @@ export const productData: ProductDataProps[] = [
         // productName: "tinted butter balm",
         hexCode: "#D0524D",
         featuredImage:
-          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Thats_Tea_211_Open-0_800x.jpg?v=1686755477",
+          "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_Thats_Tea_Stylized_800x.jpg?v=1712935664",
         featuredImageAlt: "that's tea tinted butter balm",
         secondaryImage:
           "https://kyliecosmetics.com/cdn/shop/files/KJC_TBB_23_LipMacro_That_sTea_3Layers_01_800x.jpg?v=1686755477",
