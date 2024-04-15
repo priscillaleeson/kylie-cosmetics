@@ -102,7 +102,7 @@ export const Tile: React.FC<TileProps> = ({
                 setSelectedColorOption={setSelectedColorOption}
               />
             </div>
-            {/* input rating from provided data here */}
+       
             <StarRating
               avgRating={avgRating}
               numberOfRatings={numberOfRatings}
